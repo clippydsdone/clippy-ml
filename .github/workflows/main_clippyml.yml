@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v1
       with:
         registry: https://clippy.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_440709129ce44ed79f11375a908805bb }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_5e37108b23ac4a2dbc596ffca56dec2b }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_64400b40dfd840d4bb15b388908a62fa }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_5d75a3a4ab5240d180e6719fca695978 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: clippy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_440709129ce44ed79f11375a908805bb }}/clippyml:${{ github.sha }}
+        tags: clippy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_64400b40dfd840d4bb15b388908a62fa }}/clippy-ml:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'clippyml'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8a9a395f68a84b97b0ca51186eb83c82 }}
-        images: 'clippy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_440709129ce44ed79f11375a908805bb }}/clippyml:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_39ec08022c934b1e87190416a407f05b }}
+        images: 'clippy.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_64400b40dfd840d4bb15b388908a62fa }}/clippy-ml:${{ github.sha }}'
