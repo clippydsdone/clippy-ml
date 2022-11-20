@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  clippyml:
+    image: clippyml
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - 5002:5002
