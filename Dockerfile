@@ -1,8 +1,8 @@
 # For more information, please refer to https://aka.ms/vscode-docker-python
 FROM mcr.microsoft.com/appsvc/python:latest
 
-ENV PORT 3000
-EXPOSE 3000
+ENV PORT 5002
+EXPOSE 5002
 
 # Keeps Python from generating .pyc files in the container
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -23,4 +23,4 @@ RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /
 USER appuser
 
 # During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
-CMD ["gunicorn", "--bind", "0.0.0.0:3000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5002", "app:app"]
