@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     environment:
-      name: 'production'
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -59,5 +59,5 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'clippyml'
-          slot-name: 'production'
-          publish-profile: ${{ secrets.AzureAppService_PublishProfile_67fd28f0815d4a52b51da995e5d35814 }}
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C0035FF6D5F94B26B4DDDDADD1901420 }}
